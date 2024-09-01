@@ -60,3 +60,21 @@ end
 
 
 show create view current_dept_emp ;
+
+
+https://github.com/hitesh0404/MYSQL-Scripts/blob/main/MY%20SQL%20Script.sql
+
+desc salaries;
+select * from salaries s  where emp_no = 10010;
+
+
+
+
+
+
+
+
+
+
+
+
