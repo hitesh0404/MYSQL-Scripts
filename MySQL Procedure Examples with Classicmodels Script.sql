@@ -30,6 +30,15 @@ begin
 		offices o 
 	using(officeCode) where employeeNumber = id; 
 end $
+
+
+call Full_emp_details(1088);
+
+
+
+
+
+
 create or replace procedure get_total_spend(in cust_id int,out total decimal(20,2))
 begin 
 	select sum(od.quantityOrdered*od.priceEach) into total
@@ -43,12 +52,28 @@ begin
 end$
 
 
+call get_total_spend(124,@total)$
+select @total$
 
 
 
 
 
 
+create  or replace procedure get_max_quantity_product 
+							(inout id int,out  p_code varchar(10))
+begin 
+	declare q_o int;
+
+	select 
+		productcode,
+		max(quantityOrdered) into p_code,q_o 
+		from 
+			orderdetails 
+		where 
+			orderNumber=id;
+		set id =q_o;
+end
 
 
 
