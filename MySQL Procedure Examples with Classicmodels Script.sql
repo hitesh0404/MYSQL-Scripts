@@ -73,8 +73,11 @@ begin
 		where 
 			orderNumber=id;
 		set id =q_o;
-end
-
+end$
+ set @od=10100$
+ 
+ call get_max_quantity_product(@od,@product)$
+ select @od as quantity_ordered,@product$
 
 
 
