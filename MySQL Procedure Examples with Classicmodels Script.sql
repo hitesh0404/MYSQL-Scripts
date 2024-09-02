@@ -68,14 +68,18 @@ begin
 	select 
 		productcode,
 		max(quantityOrdered) into p_code,q_o 
-		from 
-			orderdetails 
-		where 
-			orderNumber=id;
-		set id =q_o;
+	from 
+		orderdetails 
+	where 
+		orderNumber=id;
+	
+	set id =q_o;
 end$
+
+
+
+
  set @od=10100$
- 
  call get_max_quantity_product(@od,@product)$
  select @od as quantity_ordered,@product$
 
